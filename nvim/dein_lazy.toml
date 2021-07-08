@@ -1,0 +1,15 @@
+
+#[[plugins]]
+#repo = 'reireias/vim-cheatsheet'
+#rev = 'release'
+#on_cmd = ['Cheat']
+#hook_add = '''
+#	let g:cheatsheet#cheat_file = expand('~') . '/.config/nvim/cheatsheet'
+#	if !filereadable(g:cheatsheet#cheat_file) 
+#		execute '!touch ' . g:cheatsheet#cheat_file
+#	endif
+#	let g:cheatsheet#flaot_window = 1
+#	let g:cheatsheet#float_window_widh_ratio = 0.6
+#	let g:cheatsheet#float_window_height_ratio = 0.6
+#'''
+

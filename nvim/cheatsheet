@@ -1,0 +1,21 @@
+[default keymap]
+	set foldmethod=indent "インデントで折り疂む
+	za	開閉
+	zM	すべてを閉じる
+	zR	すべてを開く
+
+[Leader]
+Space
+
+[prefix]
+	cheatsheet表示 <Leader>??
+	cheatsheet編集 <Leader>?e
+
+[skk keymap]insert mode中
+	skk					jk
+	sskを抜ける	l
+	カナmode		q
+	漢字入力		大文字 or ;
+	送り				大文字 or ;
+
+

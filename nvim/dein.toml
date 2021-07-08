@@ -1,0 +1,95 @@
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+	rev = 'release'
+	merged = 0
+	hook_add = '''
+		let g:coc_global_extensions = [
+				\  'coc-lists'
+				\, 'coc-json'
+				\, 'coc-html'
+				\, 'coc-css'
+				\, 'coc-tsserver'
+				\, 'coc-snippets'
+				\, 'coc-lua'
+				\ ]
+		highlight CocErrorSign ctermfg=15 ctermbg=196
+		highlight CocWarningSign ctermfg=0 ctermbg=172
+		nmap <silent> gd <Plug>(coc-definetion)
+		nmap <silent> gy <Plug>(coc-type-definition)
+		nmap <silent> gi <Plug>(coc-implementation)
+		nmap <silent> gr <Plug>(coc-references)
+	'''
+
+[[plugins]]
+repo = 'tyru/eskk.vim'
+	rev = 'release'
+	hook_add = '''
+		let s:eskk_file = expand('~') . '/.cache/eskk/SKK-JISYO.L'
+		if !filereadable(s:eskk_file) 
+			execute '!curl http://openlab.jp/skk/dic/SKK-JISYO.L.gz -o ' . s:eskk_file . '.gz --create-dirs'
+			execute '!gunzip ' . s:eskk_file . '.gz'
+		endif
+
+		let g:eskk#directory = expand('~') . '/.cache/eskk'
+		let g:eskk#dictionary = {'path': g:eskk#directory . '/my-dictionary', 'sorted': 0, 'encoding': 'utf-8', }
+		let g:eskk#large_dictionary = {'path': s:eskk_file, 'sorted': 1, 'encoding': 'euc-jp', }
+		let g:eskk#enable_completion = 1
+
+		let g:eskk#kakutei_when_unique_candidate = 1 "漢字変換した時に候補が1つの場合、自動的に確定する
+		let g:eskk#enable_completion = 0             "neocompleteを入れないと、1にすると動作しなくなるため0推奨
+		let g:eskk#no_default_mappings = 1           "デフォルトのマッピングを削除
+		let g:eskk#keep_state = 1                    "ノーマルモードに戻るとeskkモードを初期値にする
+		let g:eskk#egg_like_newline = 1              "漢字変換を確定しても改行しない。
+
+		let g:eskk#marker_henkan = "[変換]"
+		let g:eskk#marker_henkan_select = "[選択]"
+		let g:eskk#marker_okuri = "[送り]"
+		let g:eskk#marker_jisyo_touroku = "[辞書]"
+
+		augroup vimrc_eskk
+			autocmd!
+			autocmd User eskk-enable-post lmap <buffer> l <Plug>(eskk:disable)
+		augroup END
+
+		imap jk <Plug>(eskk:toggle)
+		cmap jk <Plug>(eskk:toggle)
+	'''
+
+[[plugins]]
+repo = 'tversteeg/registers.nvim'
+	rev = 'release'
+	hook_add = '''
+		let :registers_return_symbol = "\n" "'⏎' by default
+		let g:registers_tab_symbol = "\t" "'·' by default
+		let g:registers_space_symbol = "." "' ' by default
+		let g:registers_register_key_sleep = 1 "0 by default, seconds to wait before closing the window when a register key is pressed
+		let g:registers_show_empty_registers = 0 "1 by default, an additional line with the registers without content
+		let g:registers_trim_whitespace = 0 "1 by default, don't show whitespace at the begin and end of the registers
+		let g:registers_hide_only_whitespace = 1 "0 by default, don't show registers filled exclusively with whitespace
+		let g:registers_window_border = "single" "'none' by default, can be 'none', 'single','double', 'rounded', 'solid', or 'shadow' (requires Neovim 0.5.0+)
+		let g:registers_window_min_height = 10 "3 by default, a minimal height of the window when there is the cursor at the bottomg
+	'''
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+	rev = 'release'
+	hook_add = '''
+		let g:cheatsheet#cheat_file = expand('~') . '/.config/nvim/cheatsheet'
+		if !filereadable(g:cheatsheet#cheat_file) 
+			execute '!touch ' . g:cheatsheet#cheat_file
+		endif
+		let g:cheatsheet#flaot_window = 1
+		let g:cheatsheet#float_window_widh_ratio = 0.6
+		let g:cheatsheet#float_window_height_ratio = 0.6
+	'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+	rev = 'release'
+	hook_add = '''
+		let g:airline#extensions#tabline#enabled = 1
+	'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+	rev = 'release'
