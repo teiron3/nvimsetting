@@ -18,6 +18,13 @@ repo = 'neoclide/coc.nvim'
 		nmap <silent> gy <Plug>(coc-type-definition)
 		nmap <silent> gi <Plug>(coc-implementation)
 		nmap <silent> gr <Plug>(coc-references)
+
+    imap <C-l> <Plug>(coc-snippets-expand)
+    vmap <C-j> <Plug>(coc-snippets-select)
+    let g:coc_snippet_next = '<c-j>'
+    let g:coc_snippet_prev = '<c-k>'
+    imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 	'''
 
 [[plugins]]
@@ -93,3 +100,7 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 	rev = 'release'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+

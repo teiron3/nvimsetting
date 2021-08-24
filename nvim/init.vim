@@ -4,7 +4,7 @@
 	set number
 	set nowrap
 
-	"set expandtab
+	set expandtab
 	set tabstop=2
 	set autoindent
 	set shiftwidth=2
@@ -22,8 +22,7 @@
 	inoremap <silent> jj <ESC>
 	nmap <Leader>? <Cmd>Cheat<CR>
 	nmap <Leader>?e <Cmd>EditCheat<CR>
-	let s:cheatsheetfile = $HOME . "/.config/nvim/cheatsheet"
-	command! EditCheat :edit s:cheatsheetfile
+	command! EditCheat :edit ~/.config/nvim/cheatsheet
 
 "=== dein setting ===
 	let s:dein_dir = expand('~/.cache/dein')

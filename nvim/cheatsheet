@@ -8,7 +8,7 @@
 Space
 
 [prefix]
-	cheatsheet表示 <Leader>??
+	cheatsheet表示 <Leader>?
 	cheatsheet編集 <Leader>?e
 
 [skk keymap]insert mode中
@@ -18,4 +18,12 @@ Space
 	漢字入力		大文字 or ;
 	送り				大文字 or ;
 
+[git command]
+  git init  リポジトリ作成 
+  git add [filename]  ファイルを登録
+  git commit -m 'message' コミット
 
+  git remote add [repo] [path]  リポジトリの登録
+  git push origin [local branch]  LocalRepoのデータを送信 
+
+  git clone [remote repo] リモートリポジトリをクローン
